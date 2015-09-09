@@ -33,14 +33,14 @@ There are many other aggregate functions included in SQL including
 
 
 Now, let's see how many individuals were counted in each species. We do this
-using a GROUP BY clause
+using a `GROUP BY` clause
 
     SELECT species_id, COUNT(*)
     FROM surveys
     GROUP BY species_id
 
-GROUP BY tells SQL what field or fields we want to use to aggregate the data.
-If we want to group by multiple fields, we give GROUP BY a comma separated list.
+`GROUP BY` tells SQL what field or fields we want to use to aggregate the data.
+If we want to group by multiple fields, we give `GROUP BY` a comma separated list.
 
 > ### Challenge
 >
