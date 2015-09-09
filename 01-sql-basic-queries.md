@@ -140,17 +140,17 @@ your queries on before working on a larger or more complicated database.
 Sorting
 -------
 
-We can also sort the results of our queries by using ORDER BY.
+We can also sort the results of our queries by using `ORDER BY`.
 For simplicity, let’s go back to the species table and alphabetize it by taxa.
 
     SELECT * FROM species ORDER BY taxa ASC;
 
-The keyword ASC tells us to order it in Ascending order.
-We could alternately use DESC to get descending order.
+The keyword `ASC` tells us to order it in Ascending order.
+We could alternately use `DESC` to get descending order.
 
     SELECT * FROM species ORDER BY taxa DESC;
 
-ASC is the default.
+`ASC` is the default.
 
 We can also sort on several fields at once.
 To truly be alphabetical, we might want to order by genus then species.
