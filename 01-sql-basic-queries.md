@@ -177,8 +177,8 @@ field selection.
 
 The computer is basically doing this:
 
-1. Filtering rows according to WHERE
-2. Sorting results according to ORDER BY
+1. Filtering rows according to `WHERE`
+2. Sorting results according to `ORDER BY`
 3. Displaying requested columns or expressions.
 
 
