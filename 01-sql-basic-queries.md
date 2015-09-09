@@ -104,11 +104,15 @@ Saving & Exporting queries
 
 Saving queries
 --------------------------------------
+
 To enable saving queries from the main menu select **Tools** -> **Use Table for Extension Data**:
 
 ![Saving queries](img/saving_query.png)
 
-You will see additional 4 icons - "Previous query from the history", "Next query from the history", "Save query by name" and "Clear query history". When you click the query, it will then be available under the list of queries ("Select a Query").
+You will see additional 4 icons - `Previous query from the history`,
+`Next query from the history`, `Save query by name` and `Clear query 
+history`. When you click the query, it will then be available under
+the list of queries (`Select a Query`).
 
 Building more complex queries
 -----------------------------
