@@ -185,8 +185,9 @@ The computer is basically doing this:
 Order of clauses
 ----------------
 
-The order of the clauses when we write a query is dictated by SQL: SELECT, FROM, WHERE, ORDER BY
-and we often write each of them on their own line for readability.
+The order of the clauses when we write a query is dictated by SQL:
+`SELECT`, `FROM`, `WHERE`, `ORDER BY` and we often write each of them
+on their own line for readability.
 
 
 > ### Challenge
