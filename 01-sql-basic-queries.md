@@ -98,14 +98,14 @@ which have species codes DM, DO, and DS we could combine the tests using OR:
 Saving & Exporting queries
 --------------------------
 
-* Exporting:  **Actions** button and choosing **Save Result to File**.
-* Save: **View** drop down and **Create View**
+* Exporting:  `Actions` button and choosing `Save Result to File`.
+* Save: `View` drop down and `Create View`
 
 
 Saving queries
 --------------------------------------
 
-To enable saving queries from the main menu select **Tools** -> **Use Table for Extension Data**:
+To enable saving queries from the main menu select `Tools` -> `Use Table for Extension Data`:
 
 ![Saving queries](img/saving_query.png)
 
