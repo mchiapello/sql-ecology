@@ -124,6 +124,8 @@ to understand.  It is equivalent to saying `WHERE (species_id = 'DM') OR (specie
 
     SELECT * FROM surveys WHERE (year >= 2000) AND (species_id IN ('DM', 'DO', 'DS'));
 
+Or, to make it even more readable
+
     SELECT *
     FROM surveys
     WHERE (year >= 2000) AND (species_id IN ('DM', 'DO', 'DS'));
