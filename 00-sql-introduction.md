@@ -73,8 +73,8 @@ open file icon.
 You can see the tables in the database by looking at the left hand side of the
 screen under Tables.
 
-To see the contents of a table, click on that table and then click on the Browse
-and search tab in the right hand section of the screen.
+To see the contents of a table, click on that table and then click on
+the `Browse and search` tab in the right hand section of the screen.
 
 If we want to write a query, we click on the Execute SQL tab.
 
