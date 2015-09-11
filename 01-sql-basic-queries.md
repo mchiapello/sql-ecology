@@ -16,11 +16,11 @@ table.
 
     SELECT year FROM surveys;
 
-We have capitalized the words SELECT and FROM because they are SQL keywords.
-SQL is case insensitive, but it helps for readability – good style.
+We have capitalized the words `SELECT` and `FROM` because they are SQL keywords.
+SQL is case insensitive, but it helps for **readability** – good style.
 
 If we want more information, we can just add a new column to the list of fields,
-right after SELECT:
+right after `SELECT`:
 
     SELECT year, month, day FROM surveys;
 
@@ -57,14 +57,14 @@ example, we could round the values to make them easier to read.
 
 > ## Challenge
 >
-> Write a query that returns The year, month, day, species_id and weight in mg
+> Write a query that returns the year, month, day, species_id and weight in mg
 
 Filtering
 ---------
 
 Databases can also filter data – selecting only the data meeting certain
 criteria.  For example, let’s say we only want data for the species _Dipodomys
-merriami_, which has a species code of DM.  We need to add a WHERE clause to our
+merriami_, which has a species code of DM.  We need to add a `WHERE` clause to our
 query:
 
     SELECT * FROM surveys WHERE species_id='DM';
@@ -74,18 +74,19 @@ Here, we only want the data since 2000:
 
     SELECT * FROM surveys WHERE year >= 2000;
 
-We can use more sophisticated conditions by combining tests with AND and OR.
+We can use more sophisticated conditions by combining tests with `AND` and `OR`.
 For example, suppose we want the data on _Dipodomys merriami_ starting in the year
 2000:
 
     SELECT * FROM surveys WHERE (year >= 2000) AND (species_id = 'DM');
 
-Note that the parentheses aren’t needed, but again, they help with readability.
-They also ensure that the computer combines AND and OR in the way that we
-intend.
+Note that the **parentheses** aren’t needed, but again, they help with
+**readability**.  They also ensure that the computer combines `AND`
+and `OR` in the way that we intend.
 
-If we wanted to get data for any of the _Dipodomys_ species,
-which have species codes DM, DO, and DS we could combine the tests using OR:
+If we wanted to get data for any of the _Dipodomys_ species, which
+have species codes DM, DO, and DS we could combine the tests using
+`OR`:
 
     SELECT * FROM surveys WHERE (species_id = 'DM') OR (species_id = 'DO') OR (species_id = 'DS');
 
@@ -98,6 +99,7 @@ which have species codes DM, DO, and DS we could combine the tests using OR:
 Saving & Exporting queries
 --------------------------
 
+* Exporting:  `Export wizard` to CSV, or `Export Database` to `sql`.
 * Exporting:  `Actions` button and choosing `Save Result to File`.
 * Save: `View` drop down and `Create View`
 
@@ -118,7 +120,7 @@ Building more complex queries
 -----------------------------
 
 Now, lets combine the above queries to get data for the 3 _Dipodomys_ species from
-the year 2000 on.  This time, let’s use IN as one way to make the query easier
+the year 2000 on.  This time, let’s use `IN` as one way to make the query easier
 to understand.  It is equivalent to saying `WHERE (species_id = 'DM') OR (species_id
 = 'DO') OR (species_id = 'DS')`, but reads more neatly:
 
@@ -166,14 +168,14 @@ To truly be alphabetical, we might want to order by genus then species.
 Order of execution
 ------------------
 
-Another note for ordering. We don’t actually have to display a column to sort by
-it.  For example, let’s say we want to order the birds by their species ID, but
-we only want to see genus and species.
+Another note for ordering. **We don’t actually have to display a
+column to sort by it**.  For example, let’s say we want to order the
+birds by their species ID, but we only want to see genus and species.
 
     SELECT genus, species FROM species WHERE taxa = 'Bird' ORDER BY species_id ASC;
 
-We can do this because sorting occurs earlier in the computational pipeline than
-field selection.
+We can do this because **sorting occurs earlier in the computational
+pipeline** than field selection.
 
 The computer is basically doing this:
 

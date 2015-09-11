@@ -7,11 +7,13 @@ minutes: 30
 
 COUNT and GROUP BY
 ----
-Aggregation allows us to combine results by grouping records based on value and
-calculating combined values in groups.
 
-Let’s go to the surveys table and find out how many individuals there are.
-Using the wildcard simply counts the number of records (rows)
+**Aggregation** allows us to **combine results by grouping records**
+based on value and **calculating combined values in groups**.
+
+Let’s go to the surveys table and find out **how many individuals**
+there are.  Using the wildcard simply counts the number of records
+(rows)
 
     SELECT COUNT(*) FROM surveys
 
@@ -29,7 +31,10 @@ There are many other aggregate functions included in SQL including
 
 > ### Challenge
 >
-> Write query that returns: total weight, average weight, and the min and max weights for all animals caught over the duration of the survey. Can you modify it so that it outputs that for a range of weights?
+> Write query that returns: total weight, average weight, and the min
+> and max weights for all animals caught over the duration of the
+> survey. Can you modify it so that it outputs that for a range of
+> weights?
 
 
 Now, let's see how many individuals were counted in each species. We do this

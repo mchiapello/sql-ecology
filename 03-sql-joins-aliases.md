@@ -20,7 +20,7 @@ species codes.
     FROM surveys JOIN species
     ON surveys.species_id = species.species_id
 
-ON is like `WHERE`, it filters things out according to a test condition.  We use
+`ON` is like `WHERE`, it filters things out according to a test condition.  We use
 the `table.colname` format to tell the manager what column in which table we are
 referring to.
 
@@ -52,8 +52,6 @@ could do something like
 > ### Challenge:
 >
 > Write a query that returns the number of genus of the animals caught in each plot in descending order.
-
-
 
 Aliases
 -------

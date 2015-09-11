@@ -22,30 +22,32 @@ Manager -> Install -> Restart now**
 Relational databases
 --------------------
 
-* Relational databases store data in tables with fields (columns) and records
-  (rows)
-* Data in tables has types, and all values in a field have
+* Relational databases store data in **tables** with **fields**
+  (columns) and **records** (rows)
+* Data in tables have **types**, and all values in a field have
   the same type ([list of data types](#datatypes))
-* Queries let us look up data or make calculations based on columns
+* **Queries** let us look up data or make calculations based on columns
 
 
 Why use relational databases
 ----------------------------
 
-* Data separate from analysis.
+* **Data separate from analysis**.
   * No risk of accidentally changing data when analyzing it
   * If we change the data we can just rerun the query
-* Fast for large amounts of data
-* Improve quality control of data entry (type constraints and use of forms in
-  Access, Filemaker, etc.)
-* The concepts of relational database querying are core to understanding how to do similar things using programming languages such as R or Python.
+* Fast for **large amounts of data**
+* Improve **quality control of data entry** (type constraints and use
+  of forms in Access, Filemaker, etc.)
+* The concepts of relational database querying are **core to
+  understanding how to do similar things using programming languages
+  such as R or Python**.
 
 
 Database Management Systems
 ---------------------------
 
 There are a number of different database management systems for working with
-relational data. We're going to use SQLite today, but basically everything we
+relational data. We're going to use **SQLite** today, but basically everything we
 teach you will apply to the other database systems as well (e.g., MySQL,
 PostgreSQL, MS Access, Filemaker Pro). The only things that will differ are the
 details of exactly how to import and export data and the
@@ -55,22 +57,21 @@ details of exactly how to import and export data and the
 Database Design
 ---------------
 
-1. Every row-column combination contains a single *atomic* value, i.e., not
+1. Every **row-column combination** contains a single **atomic** value, i.e., not
    containing parts we might want to work with separately.
-2. One field per type of information
-3. No redundant information
-     * Split into separate tables with one table per class of information
-	   * Needs an identifier in common between tables – shared column - to
-       reconnect (foreign key).
-
+2. One **field per type of information**
+3. No **redundant information**
+   * Split into separate tables with one table per class of information
+   * Needs an identifier in common between tables – shared column - to
+     reconnect (**foreign key**).
 
 Introduction to SQLite Manager
 ------------------------------
 
 * Let's all open the database we downloaded in SQLite Manager by
-  clicking on the open file icon.
+  clicking on the **open file icon**.
 
-* You can see the tables in the database by looking at the left hand
+* You can see the **tables** in the database by looking at the left hand
   side of the screen under Tables.
 
 * To see the contents of a table, click on that table and then click
@@ -101,7 +102,7 @@ Import
 1. Download the three CSV files from the [Portal Database](http://figshare.com/articles/Portal_Project_Teaching_Database/1314459)
 1. Start a New Database **Database -> New Database**
 2. Start the import **Database -> Import**
-3. Select the file to import
+3. Select the file to import (`surveys.csv`)
 4. Give the table a name that matches the file name (surveys, species, plots), or use the default
 5. If the first row has column headings, check the appropriate box
 6. Make sure the delimiter and quotation options are correct

@@ -33,6 +33,90 @@ for individuals caught on Plot 1 that weigh more than 75 g.
 	WHERE plot_id = 1
 	AND weight > 75;
 
+**EXERCISE**
+
+Write a query that returns year, species ID, and weight in kg from the surveys
+table, sorted with the largest weights at the top.
+
+**SOLUTION**
+
+	SELECT year, species_id, weight / 1000.0
+	FROM surveys ORDER BY weight DESC;
+
+**EXERCISE**
+
+Let’s try to combine what we’ve learned so far in a single query. Using the
+surveys table write a query to display the three date fields, species ID, and
+weight in kilograms (rounded to two decimal places), for rodents captured in
+1999, ordered alphabetically by the species ID.
+
+**SOLUTION**
+
+	SELECT year, month, day, species_id, ROUND(weight / 1000.0, 2)
+	FROM surveys
+	WHERE year = 1999
+	ORDER BY species_id;
+
+
+
+**EXERCISE**
+
+Write query that returns: total weight, average weight, and the min
+and max weights for all animals caught over the duration of the
+survey. Can you modify it so that it outputs that for a range of
+weights?
+
+**SOLUTION**
+
+    TODO
+
+**EXERCISE**
+
+Write queries that return:
+
+1. How many individuals were counted in each year.
+
+2. Average weight of each species in each year.
+
+**SOLUTION**
+
+	SELECT year, COUNT(*)
+	FROM surveys
+	GROUP BY year;
+
+	SELECT year, species_id, ROUND(AVG(weight), 2)
+	FROM surveys
+	GROUP BY year, species_id;
+
+-------
+
+
+**EXERCISE**
+
+Write a query that returns the genus, the species, and the weight of every
+individual captured at the site.
+
+**SOLUTION**
+
+	SELECT species.genus, species.species_id, surveys.weight
+	FROM surveys
+	JOIN species ON surveys.species_id = species.species_id;
+
+**EXERCISE**
+
+Write a query that returns the number of genus of the animals caught in each
+plot in descending order.
+
+**SOLUTION**
+
+	SELECT surveys.plot_id, species.genus, COUNT(*)
+	FROM surveys
+	JOIN species ON surveys.species_id = species.species_id
+	GROUP BY species.genus, surveys.plot_id
+	ORDER BY surveys.plot_id, COUNT(*) DESC
+
+
+---------
 
 **EXERCISE**
 
@@ -65,50 +149,6 @@ in January, May and July.
 	WHERE month IN (1, 5, 7);
 
 
-**EXERCISE**
-
-Write a query that returns year, species ID, and weight in kg from the surveys
-table, sorted with the largest weights at the top.
-
-**SOLUTION**
-
-	SELECT year, species_id, weight / 1000.0
-	FROM surveys ORDER BY weight DESC;
-
-
-**EXERCISE**
-
-Let’s try to combine what we’ve learned so far in a single query. Using the
-surveys table write a query to display the three date fields, species ID, and
-weight in kilograms (rounded to two decimal places), for rodents captured in
-1999, ordered alphabetically by the species ID.
-
-**SOLUTION**
-
-	SELECT year, month, day, species_id, ROUND(weight / 1000.0, 2)
-	FROM surveys
-	WHERE year = 1999
-	ORDER BY species_id;
-
-
-**EXERCISE**
-
-Write queries that return:
-
-1. How many individuals were counted in each year.
-
-2. Average weight of each species in each year.
-
-**SOLUTION**
-
-	SELECT year, COUNT(*)
-	FROM surveys
-	GROUP BY year;
-
-	SELECT year, species_id, ROUND(AVG(weight), 2)
-	FROM surveys
-	GROUP BY year, species_id;
-
 
 **EXERCISE**
 
@@ -122,30 +162,4 @@ year starting from the most recent records.
 	FROM surveys
 	GROUP BY year, species_id
 	ORDER BY year DESC, COUNT(*) DESC;
-
-
-**EXERCISE**
-
-Write a query that returns the genus, the species, and the weight of every
-individual captured at the site.
-
-**SOLUTION**
-
-	SELECT species.genus, species.species_id, surveys.weight
-	FROM surveys
-	JOIN species ON surveys.species_id = species.species_id;
-
-
-**EXERCISE**
-
-Write a query that returns the number of genus of the animals caught in each
-plot in descending order.
-
-**SOLUTION**
-
-	SELECT surveys.plot_id, species.genus, COUNT(*)
-	FROM surveys
-	JOIN species ON surveys.species_id = species.species_id
-	GROUP BY species.genus, surveys.plot_id
-	ORDER BY surveys.plot_id, COUNT(*) DESC
 
