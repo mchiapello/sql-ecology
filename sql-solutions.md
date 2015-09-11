@@ -68,7 +68,8 @@ weights?
 
 **SOLUTION**
 
-    TODO
+    SELECT SUM(weight), AVG(weight), MIN(weight), MAX(weight) FROM surveys
+    SELECT SUM(weight), AVG(weight), MIN(weight), MAX(weight) FROM surveys WHERE weight > 50 AND weight < 100
 
 **EXERCISE**
 
@@ -87,6 +88,20 @@ Write queries that return:
 	SELECT year, species_id, ROUND(AVG(weight), 2)
 	FROM surveys
 	GROUP BY year, species_id;
+
+
+**EXERCISE**
+
+Write a query that returns the number of each species caught in each
+year sorted from most often caught species to the least occurring ones
+within each year starting from the most recent records.
+
+**SOLUTION**
+
+	SELECT species_id, year, COUNT(species_id)
+	FROM survey
+	GROUP BY year species_id
+	ORDER BY year DESC, COUNT(species_id) DESC
 
 -------
 
