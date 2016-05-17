@@ -64,6 +64,8 @@ Database Design
    * Split into separate tables with one table per class of information
    * Needs an identifier in common between tables – shared column - to
      reconnect (**foreign key**).
+4. A **primary key**, as defined by one or more fields, uniquely
+   identifies a record in a table.
 
 Introduction to SQLite Manager
 ------------------------------
