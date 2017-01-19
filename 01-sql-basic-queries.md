@@ -71,6 +71,12 @@ functions. For example, we could round the values to make them easier to read.
 >
 > Write a query that returns the year, month, day, species_id and weight in mg
 
+**SOLUTION**
+
+	SELECT day, month, year, species_id, weight * 1000
+	FROM surveys;
+
+
 ## Filtering
 
 Databases can also filter data – selecting only the data meeting certain
@@ -110,8 +116,15 @@ species codes `DM`, `DO`, and `DS`, we could combine the tests using OR:
 > ### Challenge
 >
 > Write a query that returns the day, month, year, species_id, and
-> weight (in kg) for individuals caught on Plot 1 that weigh more than 75 g
+> weight (in kg) for individuals caught on Plot 1 that weigh more than
+> 75 g
 
+**SOLUTION**
+
+	SELECT day, month, year, species_id, weight / 1000.0
+	FROM surveys
+	WHERE plot_id = 1
+	AND weight > 75;
 
 ## Building more complex queries
 
@@ -144,6 +157,7 @@ commented version of the above query can be written as:
 
 Although SQL queries often read like plain English, it is *always* useful to add
 comments; this is especially true of more complex queries.
+
 
 ## Sorting
 
@@ -183,6 +197,10 @@ To truly be alphabetical, we might want to order by genus then species.
 > Write a query that returns year, species_id, and weight in kg from
 > the surveys table, sorted with the largest weights at the top.
 
+**SOLUTION**
+
+	SELECT year, species_id, weight / 1000.0
+	FROM surveys ORDER BY weight DESC;
 
 ## Order of execution
 
@@ -216,5 +234,12 @@ we recommend to put each clause on its own line.
 > individuals captured in 1999, ordered alphabetically by the `species_id`.
 > Write the query as a single line, then put each clause on its own line, and
 > see how more legible the query becomes!
+
+**SOLUTION**
+
+	SELECT year, month, day, species_id, ROUND(weight / 1000.0, 2)
+	FROM surveys
+	WHERE year = 1999
+	ORDER BY species_id;
 
 Previous: [SQL Introduction](00-sql-introduction.html) Next: [SQL Aggregation.](02-sql-aggregation.html)
