@@ -38,6 +38,11 @@ There are many other aggregate functions included in SQL including
 >
 > Write a query that returns: total weight, average weight, and the min and max weights for all animals caught over the duration of the survey. Can you modify it so that it outputs these values only for weights between 5 and 10?
 
+**SOLUTION**
+
+    SELECT SUM(weight), AVG(weight), MIN(weight), MAX(weight) FROM surveys
+    SELECT SUM(weight), AVG(weight), MIN(weight), MAX(weight) FROM surveys WHERE weight > 50 AND weight < 100
+
 
 Now, let's see how many individuals were counted in each species. We do this
 using a `GROUP BY` clause
@@ -56,11 +61,32 @@ If we want to group by multiple fields, we give `GROUP BY` a comma separated lis
 > How many individuals were counted in each year: (a) in total; (b)
 > per each species.
 
+**SOLUTION** 
+
+    -- (a) in total
+	SELECT year, COUNT(*)
+	FROM surveys
+	GROUP BY year;
+
+
+    --- (b) per each species
+    SELECT year, species_id, COUNT(*)
+    FROM surveys 
+    GROUP BY year, species_id;
 
 > Average weight of each species in each year.
 
+**SOLUTION** 
+
+	SELECT year, species_id, ROUND(AVG(weight), 2)
+	FROM surveys
+	GROUP BY year, species_id;
 
 > Can you modify the above queries combining them into one?
+
+	SELECT year, species_id, ROUND(AVG(weight), 2), count(*)
+	FROM surveys
+	GROUP BY year, species_id;
 
 
 ## The `HAVING` keyword
@@ -164,9 +190,20 @@ Now, we will be able to access these results with a much shorter notation:
 > year sorted from most often caught species to the least occurring
 > ones within each year starting from the most recent records.
 
+**SOLUTION**
+
+	SELECT species_id, year, COUNT(species_id)
+	FROM surveys
+	GROUP BY year, species_id
+	ORDER BY year DESC, COUNT(species_id) DESC
 
 > Save this query as a `VIEW`.
 
+	CREATE VIEW sp_by_yr_ordered AS
+	SELECT species_id, year, COUNT(species_id)
+	FROM surveys
+	GROUP BY year, species_id
+	ORDER BY year DESC, COUNT(species_id) DESC
 
 ## Null values
 

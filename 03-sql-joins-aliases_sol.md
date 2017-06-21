@@ -78,6 +78,12 @@ actual species names.
 > Write a query that returns the genus, the species, and the weight
 > of every individual captured at the site
 
+**SOLUTION**
+
+	SELECT species.genus, species.species_id, surveys.weight
+	FROM surveys
+	JOIN species 
+	ON surveys.species_id = species.species_id;
 
 Joins can be combined with sorting, filtering, and aggregation.  So, if we
 wanted average mass of the individuals on each different type of treatment, we
@@ -94,6 +100,13 @@ could do something like
 > Write a query that returns the number of genus of the animals caught
 > in each plot in descending order.
 
+**SOLUTION**
+
+	SELECT surveys.plot_id, species.genus, COUNT(*)
+	FROM surveys
+	JOIN species ON surveys.species_id = species.species_id
+	GROUP BY species.genus, surveys.plot_id
+	ORDER BY surveys.plot_id, COUNT(*) DESC
 
 
 > ### Challenge:
@@ -101,6 +114,11 @@ could do something like
 > Write a query that finds the average weight of each rodent species
 > (i.e., only include species with Rodent in the taxa field).
 
+    SELECT species.species_id, surveys.weight
+	FROM species
+	JOIN surveys ON species.species_id == surveys.species_id
+	WHERE species.taxa = 'Rodent'
+	GROUP BY species.species_id
 	
 ## Functions
 
@@ -123,12 +141,17 @@ The lone "sex" column is only included in the query above to illustrate where
 > Write a query that returns 30 instead of `NULL` for values in the
 > `hindfoot_length` column.
 
+    SELECT species_id, hindfoot_length , IFNULL(hindfoot_length, 30) AS non_null_hfl
+    FROM surveys;
 
 > ### Challenge:
 >
 > Write a query that calculates the average hind-foot length of each species,
 > assuming that unknown lengths are 30 (as above).
 
+	SELECT species_id, AVG(IFNULL(hindfoot_length, 30)), AVG(hindfoot_length)
+	FROM surveys
+	GROUP BY species_id
 
 `IFNULL` can be particularly useful in `JOIN`. When joining the `species` and
 `surveys` tables earlier, some results were excluded because the `species_id`
